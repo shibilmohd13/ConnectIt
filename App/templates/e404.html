@@ -1,0 +1,30 @@
+{% extends 'e500.html' %}
+
+{% block title %}error 404{% endblock title %}
+
+{% block auto-logout %}{% endblock auto-logout %}
+
+{% block sidebar-content %}
+{% if user.is_authenticated %}
+<a href="{% url 'inbox' %}" class="btn btn-secondary">Back</a>
+{% else %}
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+{% endif %}
+{% endblock sidebar-content %}
+
+{% block error-body %}
+    <span class="text-danger mb-5 error-404">4</span>
+    <i class="far fa-question-circle fa-spin fa-6x"></i>
+    <span class="text-danger mb-5 error-404">4</span>
+    <h6 class="text-dark mb-3 error-txt1">Page not found</h6>
+    <span class="text-dark error-txt2">Let's go to
+        {% if user.is_authenticated %}
+        <a href="{% url 'inbox' %}" class="textdark">Inbox</a>
+        {% else %}
+        <a href="{% url 'home' %}" class="textdark">Home</a>
+        {% endif %}
+    </span>
+{% endblock error-body %}
+
+{% block reason %}{% endblock reason %}
+{% block note %}{% endblock note %}

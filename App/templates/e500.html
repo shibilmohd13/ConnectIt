@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}error 500{% endblock title %}    
+
+{% block image %}{% endblock image %}
+
+{% block typed %}{% endblock typed %}
+
+{% block auto-logout %}{% endblock auto-logout %}
+    
+{% block sidebar-content %}
+    <a href="{% url 'inbox' %}" class="btn btn-secondary">Back</a>
+{% endblock sidebar-content %}
+    
+{% block content %}
+    <div class="text-center error">
+        <div class="text-center text-danger">
+            {% block error-body %}
+            <span class="fa-stack fa-5x">
+                <i class="fas fa-ban fa-stack-2x"></i>
+                <i class="text-dark fas fa-envelope fa-stack-1x fa-inverse"></i>
+            </span>
+            {% endblock error-body %}
+        </div>
+        <h6 class="text-danger mt-4 mb-4" style="font-size: 28px;">{% block reason %}The message no longer exists !{% endblock reason %}</h6>
+        <div class="mt-3 error-txt1">
+            <span style="font-weight: 500; font-size: 20px;">
+                {% block note %}
+                Note: <span>The message was probably deleted from the inbox</span>    
+                {% endblock note %}
+            </span>
+            <br>
+            <span class="text-dark error-txt2">Let's go to
+                {% if user.is_authenticated %}
+                <a href="{% url 'inbox' %}" class="textdark">Inbox</a>
+                {% else %}
+                <a href="{% url 'home' %}" class="textdark">Home</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+{% endblock content %}
+    

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+<!-- auto logout denied -->
+{% block auto-logout %}{% endblock auto-logout %}
+
+<!-- Page content -->
+{% block content %}
+<div class="content_area text-center justify-content-center" style="animation: fadeIn 3s forwards;">
+    <h1 class="text-dark">
+        <br><span>Client Communication Portal</span>
+    </h1>
+    <p>Are you tired of constantly checking your personal email for client inquiries?<br> Do you struggle to keep track of all your client communication in one place?<br> Our web application is here to help.</p>
+    <div class="my-3">
+        <button class="btn btn-success my-2 my-sm-0" data-bs-toggle="modal" data-bs-target="#messageModal">Send Message</button>
+        <a href="{% url 'about' %}"><button class="btn btn-outline-success my-2 my-sm-0">About ConnectIt</button></a>
+    </div>
+</div>
+  <!-- Message -->
+  <!-- <div>
+      <button style="background-color: #5ca08e;" class="btn text-light pulse" data-bs-toggle="modal" data-bs-target="#messageModal">
+          <i class="fas fa-envelope fa-2x"></i>
+      </button>
+  </div> -->
+{% endblock content %}
